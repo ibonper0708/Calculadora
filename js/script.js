@@ -13,14 +13,19 @@ function resetearCalculadora() {
 //Función que reinicializa los valores de las variables a su estado original.
 function resetearVariables() {
     // **TODO: ** Resetear el valor de las variable `valorEnPantalla`
+    valorEnPantalla = "";
     // **TODO: ** Resetear el valor de las variable `operando1`
+    operando1 = null;
     // **TODO: ** Resetear el valor de las variable `operando2`
+    operando2 = null;
     // **TODO: ** Resetear el valor de las variable `operador`
+    operador = null;
 }
 
 //Función que actualiza el display (pantalla) de la calculadora.
 function actualizarDisplay() {
     // **TODO: ** Asignarle al elemento HTML "display" el valor de la variable `valorEnPantalla`
+    document.getElementById("display").innerHTML=valorEnPantalla;
 }
 
 //Función que se ejecuta cuando se pulsa en un número. Agrega el número pulsado al número que hay en el display
