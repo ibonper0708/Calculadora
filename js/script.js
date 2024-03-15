@@ -19,7 +19,7 @@ function resetearVariables() {
     // **TODO: ** Resetear el valor de las variable `operando2`
     operando2 = null;
     // **TODO: ** Resetear el valor de las variable `operador`
-    operador = null;
+    operador = "";
 }
 
 //Función que actualiza el display (pantalla) de la calculadora.
@@ -31,7 +31,9 @@ function actualizarDisplay() {
 //Función que se ejecuta cuando se pulsa en un número. Agrega el número pulsado al número que hay en el display
 function agregarNumero(symbol) {
     // **TODO: ** Concatenar al valor de la variable `valorEnPantalla` el número que se ha pulsado (variable `symbol`). Por ejemplo, si en display había un "3" y se pulsa "5", que ahora se muestre "35"
+    valorEnPantalla = valorEnPantalla + symbol;
     // **TODO: ** Actualizar el display
+    actualizarDisplay();
 }
 
 //Función que se ejecuta cuando pulsa en un operador (+, -, *, /). Copia lo que hay en el display a la variable `operador1` y se prepara para pedir el operador2
