@@ -25,7 +25,8 @@ function resetearVariables() {
 //Función que actualiza el display (pantalla) de la calculadora.
 function actualizarDisplay() {
     // **TODO: ** Asignarle al elemento HTML "display" el valor de la variable `valorEnPantalla`
-    document.getElementById("display").innerHTML=valorEnPantalla;
+    document.getElementById("display").value = valorEnPantalla;
+
 }
 
 //Función que se ejecuta cuando se pulsa en un número. Agrega el número pulsado al número que hay en el display
@@ -39,15 +40,40 @@ function agregarNumero(symbol) {
 //Función que se ejecuta cuando pulsa en un operador (+, -, *, /). Copia lo que hay en el display a la variable `operador1` y se prepara para pedir el operador2
 function operadorPulsado(symbol) {
     // ** TODO: ** Asignarle a la variable `operando1` el valor de la variable `valorEnPantalla`. Ten en cuenta que `operando1` es de tipo numérico y `valorEnPantalla` de texto
+    operando1 = parseInt(valorEnPantalla, 10);
     // ** TODO: ** Asignarle a la variable `operador` el operando pulsado, que está almacenado en la variable `symbol`
+    operador = symbol;
     // ** TODO: ** Resetear el valor de la variable `valorEnPantalla`
+    valorEnPantalla = "";
 }
 
 //Función que se ejecuta cuando se pulsa el botón calcular (=). Muestra el resultado en el display
 function calcular() {
     //PISTA: Fíjate que los comentarios están tabulados. Eso quiere decir hay código dentro de alguna estructura. Borra esta línea también
 
-    // ** TODO ** Controlar que el código de esta función solo se ejecute si la variable `operando1` tiene algún valor, es decir, si es distinto de "null"
+    // ** TODO ** Controlar que el código de esta función solo se ejecute si la variable `operador` tiene algún valor, es decir, si es distinto de "null"
+    if (operador != "") {
+        operando2 = parseInt(valorEnPantalla, 10);
+        switch (operador) {
+            case "+":
+                valorEnPantalla = operando1 + operando2;
+            break;
+            case "-":
+                valorEnPantalla = operando1 - operando2;
+            break;
+            case "*":
+                valorEnPantalla = operando1 * operando2;
+            break;
+            case "/":
+                valorEnPantalla = operando1 / operando2;
+                if (operando2 == 0) {
+                    valorEnPantalla = "No se puede dividir entre 0";
+                }
+            break;                                     
+        }
+        actualizarDisplay();
+        resetearVariables();
+    } 
         // ** TODO ** Asignarle a la variable `operando2` el valor de la variable `valorEnPantalla`
         // ** TODO ** Usar una estructura "según" o "switch" para que haga una operación u otra según el valor de la variable `operador`
             // ** TODO ** Caso de que el operador sea "+":
